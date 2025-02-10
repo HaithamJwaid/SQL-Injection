@@ -2,10 +2,10 @@
 
     class Connector{
 
-        #static $host =       "db";
-        static $host =       "mariadb";
-        static $user =       "root";
-        static $pass =       "Darius1998";
+        static $host =       "db";
+        #static $host =       "mariadb";
+        static $user =       "admin";
+        static $pass =       "admin";
         static $mydatabase = "MY_DATABASE";
 
         const SAFE = false;
@@ -200,8 +200,8 @@
 
         function validateLogin($userName, $password){
             $conn = new mysqli(Connector::$host, Connector::$user, Connector::$pass, Connector::$mydatabase);
-            $sql = "SELECT First_Name, password FROM user_info WHERE First_Name = '". $userName. "'";
-            #$sql = "SELECT Username, User_Pass FROM user_login WHERE Username = '". $userName. "'";
+            #$sql = "SELECT First_Name, password FROM user_info WHERE First_Name = '". $userName. "'";
+            $sql = "SELECT Username, User_Pass FROM user_login WHERE Username = '". $userName. "'";
             if ($result = $conn->query($sql)) {
                  $pass = $result->fetch_assoc();
             }
