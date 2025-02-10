@@ -37,4 +37,5 @@ else{
   }
   else {
     header("location: Views/loginView.php");
+
   }
